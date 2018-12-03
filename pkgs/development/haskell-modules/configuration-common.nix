@@ -951,6 +951,13 @@ self: super: {
   # https://github.com/yesodweb/Shelly.hs/issues/162
   shelly = dontCheck super.shelly;
 
+  # hledger needs a newer megaparsec version than we have in LTS 12.x.
+  hledger-lib = super.hledger-lib.overrideScope (self: super: {
+    megaparsec = self.megaparsec_7_0_4;
+    cassava-megaparsec = self.cassava-megaparsec_2_0_0;
+    hspec-megaparsec = self.hspec-megaparsec_2_0_0;
+  });
+
   # Copy hledger man pages from data directory into the proper place. This code
   # should be moved into the cabal2nix generator.
   hledger = overrideCabal super.hledger (drv: {
