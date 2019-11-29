@@ -5476,6 +5476,12 @@ in
 
   p2pvc = callPackage ../applications/video/p2pvc {};
 
+  p4c = callPackage ../development/compilers/p4 {};
+
+  bmv2 = callPackage ../development/compilers/p4/bmv2.nix {};
+
+  libpi = callPackage ../development/compilers/p4/pi.nix {};
+  
   p7zip = callPackage ../tools/archivers/p7zip { };
 
   packagekit = callPackage ../tools/package-management/packagekit { };
